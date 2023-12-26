@@ -6,4 +6,4 @@
 *.tsbuildinfo
 next-env.d.ts
 npm-debug.log*
-./temp
+temp.txt
