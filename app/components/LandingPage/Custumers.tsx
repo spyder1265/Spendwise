@@ -2,7 +2,7 @@ interface ICustumers {}
 
 const Custumers: React.FC<ICustumers> = () => {
   return (
-    <div className="border-y border-gray-100 bg-white dark:bg-neutral-900">
+    <div className="border-t border-gray-100 bg-white dark:bg-neutral-900">
       <div className="mx-auto max-w-screen-xl px-4 py-8 lg:py-16">
         <h2 className="mb-8 text-center text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white md:text-4xl lg:mb-16">
           You’ll be in good company

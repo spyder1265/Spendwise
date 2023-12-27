@@ -10,7 +10,7 @@ const page: React.FC<Ipage> = () => {
   return (
     <main className="flex flex-col">
       <header className="">
-        <div className="mb-[66px]">
+        <div className="mb-[72px]">
           <BasicNavbar />
         </div>
         <Header />
