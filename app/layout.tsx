@@ -1,3 +1,4 @@
+import "animate.css";
 import { Flowbite, ThemeModeScript } from "flowbite-react";
 import { Inter } from "next/font/google";
 import { type FC, type PropsWithChildren } from "react";
