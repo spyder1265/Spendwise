@@ -121,7 +121,7 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
                 <>
                   <button
                     //eslint-disable-next-line
-                    onClick={onFormChange && onFormChange()!}
+                    onClick={() => onFormChange && onFormChange()}
                     className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
                   >
                     {isLogin ? "Login" : "register"}
