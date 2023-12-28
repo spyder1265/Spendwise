@@ -8,7 +8,7 @@ interface Ipage {}
 
 const page: React.FC<Ipage> = () => {
   return (
-    <main className="m-0 flex flex-col">
+    <main className="m-0 flex flex-col overflow-hidden ">
       <header className="">
         <div className="mb-[72px]">
           <BasicNavbar />

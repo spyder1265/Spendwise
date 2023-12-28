@@ -60,7 +60,7 @@ const Header: React.FC<IHeader> = () => {
         {/* desktop text */}
         <div
           // eslint-disable-next-line tailwindcss/no-custom-classname
-          className="animate__animated animate__fadeIn mr-auto hidden place-self-center md:block lg:col-span-7"
+          className="animate__animated animate__fadeInLeft mr-auto hidden place-self-center md:block lg:col-span-7"
         >
           <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl xl:text-6xl">
             Payments tool for software companies
