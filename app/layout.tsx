@@ -3,6 +3,7 @@ import { Flowbite, ThemeModeScript } from "flowbite-react";
 import { Inter } from "next/font/google";
 import { type FC, type PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
+import ClientOnly from "./components/ClientOnly";
 import "./globals.css";
 import { flowbiteTheme } from "./theme";
 
@@ -20,7 +21,9 @@ const RootLayout: FC<PropsWithChildren> = function ({ children }) {
           inter.className,
         )}
       >
-        <Flowbite theme={{ theme: flowbiteTheme }}>{children}</Flowbite>
+        <ClientOnly>
+          <Flowbite theme={{ theme: flowbiteTheme }}>{children}</Flowbite>
+        </ClientOnly>
       </body>
     </html>
   );

@@ -9,6 +9,7 @@ import {
   NavbarToggle,
 } from "flowbite-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState, type FC } from "react";
 import { BiLock } from "react-icons/bi";
 import { HiMenuAlt1, HiMenuAlt3, HiX } from "react-icons/hi";
@@ -70,12 +71,13 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
   isAuth,
   onFormChange,
 }) => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const navigation = [
-    { name: "Home", href: "#" },
-    { name: "About", href: "#" },
-    { name: "Pricing", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Home", href: "#", isActive: pathname === "/" },
+    { name: "About", href: "#", isActive: pathname === "/about" },
+    { name: "Pricing", href: "#", isActive: pathname === "/pricing" },
+    { name: "Contact", href: "#", isActive: pathname === "/contact" },
   ];
 
   return (
@@ -102,7 +104,12 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
             <div>
               <NavbarCollapse className="absolute inset-x-0 top-0 mt-[74px] w-full items-center justify-between  bg-gray-50 shadow-none transition-transform duration-700 dark:bg-neutral-800 md:relative md:mt-0 md:border-none md:bg-transparent md:p-0 lg:order-1 lg:flex lg:w-auto">
                 {navigation.map((item, index) => (
-                  <NavbarLink key={index} href={item.href} className="">
+                  <NavbarLink
+                    key={index}
+                    href={item.href}
+                    active={item.isActive}
+                    className=""
+                  >
                     {item.name}
                   </NavbarLink>
                 ))}
