@@ -2,7 +2,7 @@ interface ISocialProof {}
 
 const SocialProof: React.FC<ISocialProof> = () => {
   return (
-    <div className="border-y bg-white dark:bg-neutral-900">
+    <div className=" border-b bg-white dark:bg-neutral-900">
       <div className="mx-auto max-w-screen-xl px-4 py-8 text-center lg:px-6 lg:py-16">
         <dl className="mx-auto grid max-w-screen-md gap-8 text-gray-900 dark:text-white sm:grid-cols-3">
           <div className="flex flex-col items-center justify-center">

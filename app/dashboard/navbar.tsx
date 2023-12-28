@@ -10,6 +10,7 @@ import {
 } from "flowbite-react";
 import Image from "next/image";
 import { useState, type FC } from "react";
+import { BiLock } from "react-icons/bi";
 import { HiMenuAlt1, HiMenuAlt3, HiX } from "react-icons/hi";
 
 export const DashboardNavbar: FC<Record<string, never>> = function () {
@@ -57,7 +58,18 @@ export const DashboardNavbar: FC<Record<string, never>> = function () {
   );
 };
 
-export const BasicNavbar = function () {
+interface IBasicNavbar {
+  className?: string;
+  isLogin?: boolean;
+  isAuth?: boolean;
+  onFormChange?: () => void;
+}
+
+export const BasicNavbar: FC<IBasicNavbar> = ({
+  isLogin,
+  isAuth,
+  onFormChange,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigation = [
     { name: "Home", href: "#" },
@@ -88,37 +100,35 @@ export const BasicNavbar = function () {
               </Navbar.Brand>
             </div>
             <div>
-              <NavbarCollapse className="absolute inset-x-1 top-0 mt-[78px] w-full items-center justify-between  bg-gray-50 shadow-none transition-all duration-700 dark:bg-neutral-800 md:relative md:mt-0 md:border-none md:p-0 lg:order-1 lg:flex lg:w-auto">
+              <NavbarCollapse className="absolute inset-x-0 top-0 mt-[74px] w-full items-center justify-between  bg-gray-50 shadow-none transition-transform duration-700 dark:bg-neutral-800 md:relative md:mt-0 md:border-none md:bg-transparent md:p-0 lg:order-1 lg:flex lg:w-auto">
                 {navigation.map((item, index) => (
-                  <NavbarLink
-                    key={index}
-                    href={item.href}
-                    className="hover:bg-gray-200"
-                  >
+                  <NavbarLink key={index} href={item.href} className="">
                     {item.name}
                   </NavbarLink>
                 ))}
               </NavbarCollapse>
             </div>
             <div className="flex h-full items-center">
-              <a
-                href="#start"
-                className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
-              >
-                login
-                <svg
-                  className="-mr-1 ml-2 h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+              {!isAuth ? (
+                <a
+                  href="auth"
+                  className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </a>
+                  login
+                  <BiLock className="ml-2 h-5 w-5" />
+                </a>
+              ) : (
+                <>
+                  <button
+                    onClick={() => onFormChange && onFormChange()}
+                    className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
+                  >
+                    {isLogin ? "register" : "Login"}
+                    <BiLock className="ml-2 h-5 w-5" />
+                  </button>
+                </>
+              )}
+
               <DarkThemeToggle />
               {isOpen ? (
                 //eslint-disable-next-line
