@@ -126,17 +126,26 @@ const Login: React.FC<ILogin> = ({ onSubmit }) => {
           </div>
         </div>
       </div>
-      {/* forgot password */}
-      <div className="flex justify-end">
-        <a
-          href="auth?forgot"
-          className={`text-base 
-            text-blue-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-gray-300
-          `}
-        >
-          Forgot password?
-        </a>
+      {/* dont have an account and forgot password */}
+      <div className="flex w-full">
+        <div className="flex w-full items-center justify-center">
+          <a
+            href="auth"
+            className="place-self-start text-sm font-medium text-blue-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-gray-300"
+          >
+            Forgot password?
+          </a>
+        </div>
+        <div className="flex w-full items-center justify-center">
+          <a
+            href="auth"
+            className="text-sm font-medium  text-blue-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-gray-300"
+          >
+            Don't have an account?
+          </a>
+        </div>
       </div>
+
       {/* Submit button */}
       <div>
         <button
