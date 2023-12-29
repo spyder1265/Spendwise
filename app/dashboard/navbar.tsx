@@ -74,8 +74,8 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const navigation = [
-    { name: "Home", href: "#", isActive: pathname === "/" },
-    { name: "About", href: "#", isActive: pathname === "/about" },
+    { name: "Home", href: "/", isActive: pathname === "/" },
+    { name: "About", href: "/about", isActive: pathname === "/about" },
     { name: "Pricing", href: "#", isActive: pathname === "/pricing" },
     { name: "Contact", href: "#", isActive: pathname === "/contact" },
   ];

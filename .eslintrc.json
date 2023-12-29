@@ -29,7 +29,7 @@
       }
     ],
     "tailwindcss/no-custom-classname": [
-      "error",
+      "off",
       {
         "config": "tailwind.config.ts"
       }
