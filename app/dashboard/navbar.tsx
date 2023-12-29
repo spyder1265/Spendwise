@@ -9,7 +9,7 @@ import {
   NavbarToggle,
 } from "flowbite-react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, type FC } from "react";
 import { BiLock } from "react-icons/bi";
 import { HiMenuAlt1, HiMenuAlt3, HiX } from "react-icons/hi";
@@ -72,6 +72,7 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
   onFormChange,
 }) => {
   const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const navigation = [
     { name: "Home", href: "/", isActive: pathname === "/" },
@@ -79,6 +80,12 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
     { name: "Pricing", href: "#", isActive: pathname === "/pricing" },
     { name: "Contact", href: "#", isActive: pathname === "/contact" },
   ];
+
+  const handleStateChange = () => {
+    if (isLogin) router.replace("/auth?register");
+    else router.replace("/auth?login");
+    onFormChange && onFormChange();
+  };
 
   return (
     <>
@@ -102,7 +109,7 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
               </Navbar.Brand>
             </div>
             <div>
-              <NavbarCollapse className="absolute inset-x-0 top-0 mt-[74px] w-full items-center justify-between  bg-transparent shadow-none transition-transform duration-700 dark:bg-transparent md:relative md:mt-0 md:border-none md:bg-transparent md:p-0 lg:order-1 lg:flex lg:w-auto">
+              <NavbarCollapse className="absolute inset-x-0 top-0 mt-[72px] w-full items-center justify-between bg-gray-50  shadow-none transition-transform duration-700 dark:bg-neutral-900 md:relative md:mt-0 md:border-none md:bg-transparent md:p-0 dark:md:bg-transparent lg:order-1 lg:flex lg:w-auto">
                 {navigation.map((item, index) => (
                   <NavbarLink
                     key={index}
@@ -120,7 +127,7 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
             <div className="flex h-full items-center">
               {!isAuth ? (
                 <a
-                  href="auth"
+                  href="auth?login"
                   className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
                 >
                   login
@@ -129,7 +136,7 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
               ) : (
                 <>
                   <button
-                    onClick={() => onFormChange && onFormChange()}
+                    onClick={() => handleStateChange()}
                     className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
                   >
                     {isLogin ? "register" : "Login"}
