@@ -94,13 +94,13 @@ const Login: React.FC<ILogin> = ({ onSubmit }) => {
             {...register("password")}
             helperText={
               errors.password ? (
-                <p className="text-red-500">
+                <span className="text-red-500">
                   <span className="font-medium">invalid</span> Password!
-                </p>
+                </span>
               ) : (
-                <p className="text-sm text-gray-500">
+                <span className="text-sm text-gray-500">
                   Password must be at least 8 characters long
-                </p>
+                </span>
               )
             }
           />
@@ -130,7 +130,7 @@ const Login: React.FC<ILogin> = ({ onSubmit }) => {
       <div className="flex w-full">
         <div className="flex w-full items-center justify-center">
           <a
-            href="auth"
+            href="auth?forgot-password"
             className="place-self-start text-sm font-medium text-blue-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-gray-300"
           >
             Forgot password?
@@ -138,7 +138,7 @@ const Login: React.FC<ILogin> = ({ onSubmit }) => {
         </div>
         <div className="flex w-full items-center justify-center">
           <a
-            href="auth"
+            href="auth?register"
             className="text-sm font-medium  text-blue-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-gray-300"
           >
             Don't have an account?

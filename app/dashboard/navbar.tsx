@@ -9,7 +9,7 @@ import {
   NavbarToggle,
 } from "flowbite-react";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState, type FC } from "react";
 import { BiLock } from "react-icons/bi";
 import { HiMenuAlt1, HiMenuAlt3, HiX } from "react-icons/hi";
@@ -72,7 +72,6 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
   onFormChange,
 }) => {
   const pathname = usePathname();
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const navigation = [
     { name: "Home", href: "/", isActive: pathname === "/" },
@@ -82,8 +81,6 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
   ];
 
   const handleStateChange = () => {
-    if (isLogin) router.replace("/auth?register");
-    else router.replace("/auth?login");
     onFormChange && onFormChange();
   };
 

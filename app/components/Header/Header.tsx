@@ -6,10 +6,7 @@ const Header: React.FC<IHeader> = () => {
   return (
     <div className="bg-white dark:bg-neutral-900">
       <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-8 lg:py-16 xl:gap-0">
-        <div
-          // eslint-disable-next-line tailwindcss/no-custom-classname
-          className="animate__animated animate__fadeInLeft my-10 flex w-full items-start md:hidden lg:col-span-5 lg:mt-0"
-        >
+        <div className="animate__animated animate__fadeInLeft my-10 flex w-full items-start md:hidden lg:col-span-5 lg:mt-0">
           <Image
             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
             alt="mockup"
@@ -22,10 +19,7 @@ const Header: React.FC<IHeader> = () => {
 
         {/* mobile text */}
 
-        <div
-          // eslint-disable-next-line tailwindcss/no-custom-classname
-          className="animate__animated animate__fadeInUp  mr-auto block place-self-center md:hidden lg:col-span-7"
-        >
+        <div className="animate__animated animate__fadeInUp  mr-auto block place-self-center md:hidden lg:col-span-7">
           <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl xl:text-6xl">
             Payments tool for software companies
           </h1>
@@ -60,10 +54,7 @@ const Header: React.FC<IHeader> = () => {
         </div>
 
         {/* desktop text */}
-        <div
-          // eslint-disable-next-line tailwindcss/no-custom-classname
-          className="animate__animated animate__fadeInLeft mr-auto hidden place-self-center md:block lg:col-span-7"
-        >
+        <div className="animate__animated animate__fadeInLeft mr-auto hidden place-self-center md:block lg:col-span-7">
           <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl xl:text-6xl">
             Payments tool for software companies
           </h1>
@@ -96,10 +87,7 @@ const Header: React.FC<IHeader> = () => {
             Speak to Sales
           </a>
         </div>
-        <div
-          // eslint-disable-next-line tailwindcss/no-custom-classname
-          className="animate__animated animate__fadeInRight hidden lg:col-span-5 lg:mt-0 lg:flex"
-        >
+        <div className="animate__animated animate__fadeInRight hidden lg:col-span-5 lg:mt-0 lg:flex">
           <Image
             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
             alt="mockup"
