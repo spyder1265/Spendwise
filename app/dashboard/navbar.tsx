@@ -84,7 +84,7 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
     <>
       <Navbar
         fluid
-        className="fixed top-0 z-30 w-full border-b border-gray-100 bg-white p-0 dark:border-gray-700 dark:bg-neutral-800 sm:p-0"
+        className="fixed top-0 z-30 w-full border-b border-gray-100 bg-white p-0 dark:border-gray-700 dark:bg-neutral-900 sm:p-0"
       >
         <div className="w-full p-3 pr-4">
           <div className="flex items-center justify-between">
@@ -108,7 +108,9 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
                     key={index}
                     href={item.href}
                     active={item.isActive}
-                    className=""
+                    className={`${
+                      !item.isActive && "hover:bg-neutral-300"
+                    } active:bg-black`}
                   >
                     {item.name}
                   </NavbarLink>
