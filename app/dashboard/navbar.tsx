@@ -102,7 +102,7 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
               </Navbar.Brand>
             </div>
             <div>
-              <NavbarCollapse className="absolute inset-x-0 top-0 mt-[74px] w-full items-center justify-between  bg-gray-50 shadow-none transition-transform duration-700 dark:bg-neutral-800 md:relative md:mt-0 md:border-none md:bg-transparent md:p-0 lg:order-1 lg:flex lg:w-auto">
+              <NavbarCollapse className="absolute inset-x-0 top-0 mt-[74px] w-full items-center justify-between  bg-transparent shadow-none transition-transform duration-700 dark:bg-transparent md:relative md:mt-0 md:border-none md:bg-transparent md:p-0 lg:order-1 lg:flex lg:w-auto">
                 {navigation.map((item, index) => (
                   <NavbarLink
                     key={index}
