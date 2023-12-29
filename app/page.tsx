@@ -1,6 +1,6 @@
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 import Custumers from "./components/LandingPage/Custumers";
-import Footer from "./components/LandingPage/Footer";
-import Header from "./components/LandingPage/Header";
 import SocialProof from "./components/LandingPage/SocialProof";
 import { BasicNavbar } from "./dashboard/navbar";
 

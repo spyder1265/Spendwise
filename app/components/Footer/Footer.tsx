@@ -86,7 +86,7 @@ const Footer: React.FC<IFooter> = () => {
           <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
             © 2022{" "}
             <a href="https://flowbite.com" className="hover:underline">
-              Flowbite™
+              Spendwise™
             </a>
             . All Rights Reserved.
           </span>
@@ -178,4 +178,15 @@ const Footer: React.FC<IFooter> = () => {
     </div>
   );
 };
+
+export const BasicFooter = function () {
+  return (
+    <div className="flex w-full items-center justify-center pb-5 pt-10">
+      <p className="text-gray-500 dark:text-gray-400">
+        &copy; 2021 Spendwise™. All rights reserved.
+      </p>
+    </div>
+  );
+};
+
 export default Footer;

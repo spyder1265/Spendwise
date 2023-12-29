@@ -9,6 +9,7 @@ import {
   NavbarToggle,
 } from "flowbite-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState, type FC } from "react";
 import { BiLock } from "react-icons/bi";
 import { HiMenuAlt1, HiMenuAlt3, HiX } from "react-icons/hi";
@@ -70,19 +71,20 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
   isAuth,
   onFormChange,
 }) => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const navigation = [
-    { name: "Home", href: "#" },
-    { name: "About", href: "#" },
-    { name: "Pricing", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Home", href: "#", isActive: pathname === "/" },
+    { name: "About", href: "#", isActive: pathname === "/about" },
+    { name: "Pricing", href: "#", isActive: pathname === "/pricing" },
+    { name: "Contact", href: "#", isActive: pathname === "/contact" },
   ];
 
   return (
     <>
       <Navbar
         fluid
-        className="fixed top-0 z-30 w-full border-b border-gray-100 bg-white p-0 dark:border-gray-700 dark:bg-neutral-800 sm:p-0"
+        className="fixed top-0 z-30 w-full border-b border-gray-100 bg-white p-0 dark:border-gray-700 dark:bg-neutral-900 sm:p-0"
       >
         <div className="w-full p-3 pr-4">
           <div className="flex items-center justify-between">
@@ -100,9 +102,16 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
               </Navbar.Brand>
             </div>
             <div>
-              <NavbarCollapse className="absolute inset-x-0 top-0 mt-[74px] w-full items-center justify-between  bg-gray-50 shadow-none transition-transform duration-700 dark:bg-neutral-800 md:relative md:mt-0 md:border-none md:bg-transparent md:p-0 lg:order-1 lg:flex lg:w-auto">
+              <NavbarCollapse className="absolute inset-x-0 top-0 mt-[74px] w-full items-center justify-between  bg-transparent shadow-none transition-transform duration-700 dark:bg-transparent md:relative md:mt-0 md:border-none md:bg-transparent md:p-0 lg:order-1 lg:flex lg:w-auto">
                 {navigation.map((item, index) => (
-                  <NavbarLink key={index} href={item.href} className="">
+                  <NavbarLink
+                    key={index}
+                    href={item.href}
+                    active={item.isActive}
+                    className={`${
+                      !item.isActive && "hover:bg-neutral-300"
+                    } active:bg-black`}
+                  >
                     {item.name}
                   </NavbarLink>
                 ))}
