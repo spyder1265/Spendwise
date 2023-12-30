@@ -10,17 +10,17 @@ const Pricing: React.FC = () => {
       </div>
       <section className="pt-10">
   <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-      <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Designed for business teams like yours</h2>
-          <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+      <div className="mx-auto max-w-screen-md text-center mb-16 lg:mb-20">
+          <h2 className="mb-4 mt-5 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Spendwise Pricing</h2>
+          <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Choosing the right plan for your needs is the first step towards unlocking the full potential of Spendwise.</p>
       </div>
       <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
         
-          <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+          <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900  rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 neutral dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold">Starter</h3>
-              <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best option for personal use & for your next project.</p>
+              <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">Jumpstart your fintech journey with the Fintech Starter Plan</p>
               <div className="flex justify-center items-baseline my-8">
-                  <span className="mr-2 text-5xl font-extrabold">$29</span>
+                  <span className="mr-2 text-5xl font-extrabold">₵29</span>
                   <span className="text-gray-500 dark:text-gray-400">/month</span>
               </div>
             
@@ -28,37 +28,37 @@ const Pricing: React.FC = () => {
                   <li className="flex items-center space-x-3">
                     
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Individual configuration</span>
+                      <span>Invoicing</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>No setup, or hidden fees</span>
+                      <span>Basic Payment Methods</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Team size: <span className="font-semibold">1 developer</span></span>
+                      <span>Lite Reporting</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Premium support: <span className="font-semibold">6 months</span></span>
+                      <span>User-Friendly Interface</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Free updates: <span className="font-semibold">6 months</span></span>
+                      <span>Security Measures</span>
                   </li>
               </ul>
               <a href="#" className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Get started</a>
           </div>
         
-          <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+          <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8  neutral dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold">Company</h3>
-              <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">Relevant for multiple users, extended & premium support.</p>
+              <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">Accelerate your growth with the Fintech Company Plan</p>
               <div className="flex justify-center items-baseline my-8">
-                  <span className="mr-2 text-5xl font-extrabold">$99</span>
+                  <span className="mr-2 text-5xl font-extrabold">₵99</span>
                   <span className="text-gray-500 dark:text-gray-400">/month</span>
               </div>
               
@@ -66,36 +66,36 @@ const Pricing: React.FC = () => {
                   <li className="flex items-center space-x-3">
                       
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Individual configuration</span>
+                      <span>Advanced Invoicing Options</span>
                   </li>
                   <li className="flex items-center space-x-3">
                       
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>No setup, or hidden fees</span>
+                      <span>Expanded Payment Methods</span>
                   </li>
                   <li className="flex items-center space-x-3">
                       
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Team size: <span className="font-semibold">10 developers</span></span>
+                      <span>Robust Recurring Billing</span>
                   </li>
                   <li className="flex items-center space-x-3">
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Premium support: <span className="font-semibold">24 months</span></span>
+                      <span>Detailed Analytics and Reporting</span>
                   </li>
                   <li className="flex items-center space-x-3">
                       
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Free updates: <span className="font-semibold">24 months</span></span>
+                      <span>Integration with Financial Systems</span>
                   </li>
               </ul>
               <a href="#" className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Get started</a>
           </div>
           
-          <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+          <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900  rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8  neutral dark:text-white">
               <h3 className="mb-4 text-2xl font-semibold">Enterprise</h3>
-              <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best for large scale uses and extended redistribution rights.</p>
+              <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">Scale your fintech empire with the Fintech Enterprise Plan</p>
               <div className="flex justify-center items-baseline my-8">
-                  <span className="mr-2 text-5xl font-extrabold">$499</span>
+                  <span className="mr-2 text-5xl font-extrabold">₵200</span>
                   <span className="text-gray-500 dark:text-gray-400">/month</span>
               </div>
               
@@ -103,32 +103,52 @@ const Pricing: React.FC = () => {
                   <li className="flex items-center space-x-3">
                       
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Individual configuration</span>
+                      <span>Highly Customizable Invoices</span>
                   </li>
                   <li className="flex items-center space-x-3">
                       
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>No setup, or hidden fees</span>
+                      <span>Full Spectrum of Payment Methods</span>
                   </li>
                   <li className="flex items-center space-x-3">
                       
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Team size: <span className="font-semibold">100+ developers</span></span>
+                      <span>Advanced Subscription Management</span>
                   </li>
                   <li className="flex items-center space-x-3">
                       
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Premium support: <span className="font-semibold">36 months</span></span>
+                      <span>API for Deep Integration</span>
                   </li>
                   <li className="flex items-center space-x-3">
                       
                       <svg className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span>Free updates: <span className="font-semibold">36 months</span></span>
+                      <span>Dedicated 24/7 Fintech Support</span>
                   </li>
               </ul>
               <a href="#" className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Get started</a>
           </div>
       </div>
+  </div>
+</section>
+
+<section className="">
+  <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
+      <figure className="max-w-screen-md mx-auto">
+          <svg className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor"/>
+          </svg> 
+          <blockquote>
+              <p className="text-2xl font-medium text-gray-900 dark:text-white">"Spendwise has been an invaluable partner on our growth journey, providing the tools and support we need to stay ahead in the competitive fintech landscape."</p>
+          </blockquote>
+          <figcaption className="flex items-center justify-center mt-6 space-x-3">
+              <img className="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png" alt="profile picture"/>
+              <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
+                  <div className="pr-3 font-medium text-gray-900 dark:text-white">Sherwin Thompson</div>
+                  <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">CEO at Acity</div>
+              </div>
+          </figcaption>
+      </figure>
   </div>
 </section>
 <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8 mx-auto max-w-screen-xl" />
@@ -224,6 +244,7 @@ const Pricing: React.FC = () => {
             </a>
           </div>
         </div>
+        
     </>
   );
 };
