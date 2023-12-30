@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { BasicNavbar } from "../dashboard/navbar";
+import { BasicNavbar } from "../components/Navbar/navbar";
 
 const About: React.FC = () => {
   return (
@@ -59,8 +59,14 @@ const About: React.FC = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M13.48 7.516a6.5 6.5 0 1 1-6.93-7" />
-                  <path d="M9.79 8.09A3 3 0 1 1 5.9 4.21M7 7l2.5-2.5m2 .5l-2-.5l-.5-2l2-2l.5 2l2 .5z" />
+                  <path
+                    d="M13.48 7.516a6.5 6.5 0 1 1-6.93-7"
+                    className="path_slower"
+                  />
+                  <path
+                    className="path_slower"
+                    d="M9.79 8.09A3 3 0 1 1 5.9 4.21M7 7l2.5-2.5m2 .5l-2-.5l-.5-2l2-2l.5 2l2 .5z"
+                  />
                 </g>
               </svg>
             </div>

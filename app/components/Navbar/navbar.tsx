@@ -66,11 +66,7 @@ interface IBasicNavbar {
   onFormChange?: () => void;
 }
 
-export const BasicNavbar: FC<IBasicNavbar> = ({
-  isLogin,
-  isAuth,
-  onFormChange,
-}) => {
+export const BasicNavbar: FC<IBasicNavbar> = ({ isLogin, isAuth }) => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const navigation = [
@@ -79,10 +75,6 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
     { name: "Pricing", href: "#", isActive: pathname === "/pricing" },
     { name: "Contact", href: "#", isActive: pathname === "/contact" },
   ];
-
-  const handleStateChange = () => {
-    onFormChange && onFormChange();
-  };
 
   return (
     <>
@@ -132,13 +124,13 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
                 </a>
               ) : (
                 <>
-                  <button
-                    onClick={() => handleStateChange()}
+                  <a
+                    href={isLogin ? "auth?register" : "auth?login"}
                     className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
                   >
-                    {isLogin ? "register" : "Login"}
+                    {isLogin ? "Register" : "Login"}
                     <BiLock className="ml-2 h-5 w-5" />
-                  </button>
+                  </a>
                 </>
               )}
 

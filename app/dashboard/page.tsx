@@ -1,5 +1,5 @@
-import { HomePageContent } from "./content";
+import { DashboardContent } from "../components/Dashboard/content";
 
 export default function HomePage() {
-  return <HomePageContent />;
+  return <DashboardContent />;
 }
