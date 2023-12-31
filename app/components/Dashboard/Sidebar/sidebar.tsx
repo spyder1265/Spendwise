@@ -28,36 +28,36 @@ export const DashboardSidebar: FC = function () {
     >
       <Sidebar.Items>
         <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiChartPie}>
+          <Sidebar.Item href="#Dashboard" icon={HiChartPie}>
             Dashboard
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiViewBoards}>
+          <Sidebar.Item href="#Kanban" icon={HiViewBoards}>
             Kanban
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiInbox}>
+          <Sidebar.Item href="#Inbox" icon={HiInbox}>
             Inbox
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiUser}>
+          <Sidebar.Item href="#Users" icon={HiUser}>
             Users
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiShoppingBag}>
+          <Sidebar.Item href="#Products" icon={HiShoppingBag}>
             Products
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiArrowSmRight}>
+          <Sidebar.Item href="#SignIn" icon={HiArrowSmRight}>
             Sign In
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiTable}>
+          <Sidebar.Item href="#SignUp" icon={HiTable}>
             Sign Up
           </Sidebar.Item>
         </Sidebar.ItemGroup>
         <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiChartPie}>
+          <Sidebar.Item href="#Upgrade" icon={HiChartPie}>
             Upgrade to Pro
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiViewBoards}>
+          <Sidebar.Item href="#Documentation" icon={HiViewBoards}>
             Documentation
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={BiBuoy}>
+          <Sidebar.Item href="#Help" icon={BiBuoy}>
             Help
           </Sidebar.Item>
         </Sidebar.ItemGroup>
