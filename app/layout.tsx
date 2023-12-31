@@ -1,11 +1,10 @@
+import Providers from "@/providers/providers";
 import "animate.css";
-import { Flowbite, ThemeModeScript } from "flowbite-react";
+import { ThemeModeScript } from "flowbite-react";
 import { Inter } from "next/font/google";
 import { type FC, type PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
-import ClientOnly from "./components/ClientOnly";
 import "./globals.css";
-import { flowbiteTheme } from "./theme";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +20,7 @@ const RootLayout: FC<PropsWithChildren> = function ({ children }) {
           inter.className,
         )}
       >
-        <ClientOnly>
-          <Flowbite theme={{ theme: flowbiteTheme }}>{children}</Flowbite>
-        </ClientOnly>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
