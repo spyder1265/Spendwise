@@ -261,7 +261,9 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
             id="agree"
             color={"blue"}
             {...register("agree")}
-            className={errors.agree && "ring-1 ring-red-500"}
+            className={
+              errors.agree && "ring-1 ring-red-500 focus:outline-red-500"
+            }
           />
           <Label htmlFor="agree" className="flex">
             I agree with the&nbsp;
