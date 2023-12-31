@@ -16,8 +16,10 @@
     "npm": ">= 8"
   },
   "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.0",
     "@hookform/resolvers": "^3.3.3",
     "animate.css": "^4.1.1",
+    "antd": "^5.12.6",
     "eslint-config-next": "^14.0.4",
     "flowbite": "^2.2.0",
     "flowbite-react": "^0.7.0",
