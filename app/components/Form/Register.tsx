@@ -259,11 +259,8 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
         <div className="mt-2 flex items-center gap-2">
           <Checkbox
             id="agree"
-            color={"blue"}
+            color={errors.agree ? "red" : "blue"}
             {...register("agree")}
-            className={
-              errors.agree && "ring-1 ring-red-500 focus:outline-red-500"
-            }
           />
           <Label htmlFor="agree" className="flex">
             I agree with the&nbsp;
