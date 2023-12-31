@@ -72,7 +72,7 @@ export const BasicNavbar: FC<IBasicNavbar> = ({ isLogin, isAuth }) => {
   const navigation = [
     { name: "Home", href: "/", isActive: pathname === "/" },
     { name: "About", href: "/about", isActive: pathname === "/about" },
-    { name: "Pricing", href: "#", isActive: pathname === "/pricing" },
+    { name: "Pricing", href: "/pricing", isActive: pathname === "/pricing" },
     { name: "Contact", href: "#", isActive: pathname === "/contact" },
   ];
 
