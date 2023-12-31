@@ -110,7 +110,7 @@ const About: React.FC = () => {
             </p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
               <a
-                href="#signup"
+                href="auth?register"
                 className="inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
               >
                 Get started
