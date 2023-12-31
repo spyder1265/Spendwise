@@ -1,9 +1,11 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BasicFooter } from "../components/Footer/Footer";
+import { BasicFooter } from "../components/Footer";
 import Login from "../components/Form/Login";
-import { BasicNavbar } from "../dashboard/navbar";
+import PasswordReset from "../components/Form/PasswordReset";
+import Register from "../components/Form/Register";
+import { BasicNavbar } from "../components/Navbar/navbar";
 
 interface Ipage {}
 
@@ -47,11 +49,11 @@ const Page: React.FC<Ipage> = () => {
     if (isLogin) {
       setIsLogin(false);
       setIsRegister(true);
-      router.push("/auth?register");
+      router.replace("/auth?register");
     } else if (isRegister) {
       setIsLogin(true);
       setIsRegister(false);
-      router.push("/auth?login");
+      router.replace("/auth?login");
     }
     if (searchParams.has("forgot-password")) {
       setForgotPassword(false);
@@ -70,7 +72,7 @@ const Page: React.FC<Ipage> = () => {
             onFormChange={() => handleFormChange()}
           />
         </div>
-        <div className="flex h-screen w-full flex-col items-center justify-center pt-[72px] md:overflow-y-hidden">
+        <div className="flex h-screen w-full flex-col items-center justify-around pt-[72px] md:overflow-y-hidden">
           <div className="animate__animated animate__fadeIn flex min-w-[400px] flex-col items-start justify-center gap-5 rounded-xl px-8 py-7 shadow-lg dark:shadow-black md:min-w-[500px]">
             {isLogin ? (
               <>
@@ -84,6 +86,7 @@ const Page: React.FC<Ipage> = () => {
                 <div className="flex w-full items-center justify-center">
                   <h1 className="text-4xl font-bold">Register</h1>
                 </div>
+                <Register onSubmit={handleSubmit} />
               </>
             ) : (
               forgotPassword && (
@@ -91,12 +94,12 @@ const Page: React.FC<Ipage> = () => {
                   <div className="flex w-full items-center justify-center">
                     <h1 className="text-4xl font-bold">Password Reset</h1>
                   </div>
+                  <PasswordReset onSubmit={handleSubmit} />
                 </>
               )
             )}
           </div>
         </div>
-        {/* copy right */}
         <BasicFooter />
       </div>
     </>

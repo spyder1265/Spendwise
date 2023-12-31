@@ -2,7 +2,7 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Custumers from "./components/LandingPage/Custumers";
 import SocialProof from "./components/LandingPage/SocialProof";
-import { BasicNavbar } from "./dashboard/navbar";
+import { BasicNavbar } from "./components/Navbar/navbar";
 
 interface Ipage {}
 

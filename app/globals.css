@@ -24,3 +24,27 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 5s ease-in-out infinite;
+}
+
+.path_slow {
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  animation: draw 2s ease-in-out;
+}
+
+.path_slower {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 25s ease-in-out;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
