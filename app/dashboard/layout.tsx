@@ -4,8 +4,8 @@ import { SidebarProvider, useSidebarContext } from "@/context/SidebarContext";
 import type { FC, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 import ClientOnly from "../components/ClientOnly";
-import { DashboardNavbar } from "./navbar";
-import { DashboardSidebar } from "./sidebar";
+import { DashboardSidebar } from "../components/Dashboard/Sidebar/sidebar";
+import { DashboardNavbar } from "../components/Navbar/navbar";
 
 const DashboardLayout: FC<PropsWithChildren> = function ({ children }) {
   return (
