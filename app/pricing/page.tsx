@@ -110,7 +110,7 @@ const Pricing: React.FC = () => {
                 </li>
               </ul>
               <a
-                href="auth?register"
+                href="auth?register&plan=Starter"
                 className="rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:text-white  dark:focus:ring-primary-900"
               >
                 Get started
@@ -205,7 +205,7 @@ const Pricing: React.FC = () => {
                 </li>
               </ul>
               <a
-                href="auth?register"
+                href="auth?register&plan=Company"
                 className="rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:text-white  dark:focus:ring-primary-900"
               >
                 Get started
@@ -300,7 +300,7 @@ const Pricing: React.FC = () => {
                 </li>
               </ul>
               <a
-                href="auth?register"
+                href="auth?register&plan=Enterprise"
                 className="rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:text-white  dark:focus:ring-primary-900"
               >
                 Get started
