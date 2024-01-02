@@ -73,7 +73,7 @@ const Page: React.FC<Ipage> = () => {
           />
         </div>
         <div className="flex h-screen w-full flex-col items-center justify-around pt-[72px] md:overflow-y-hidden">
-          <div className="animate__animated animate__fadeIn flex min-w-[400px] flex-col items-start justify-center gap-5 rounded-xl px-8 py-7 shadow-lg dark:shadow-black md:min-w-[500px]">
+          <div className="animate__animated animate__fadeIn my-auto flex min-w-[400px] flex-col items-start justify-around gap-5 rounded-xl px-8 py-7 shadow-lg dark:shadow-black md:min-w-[500px]">
             {isLogin ? (
               <>
                 <div className="flex w-full items-center justify-center">
@@ -99,8 +99,8 @@ const Page: React.FC<Ipage> = () => {
               )
             )}
           </div>
+          <BasicFooter />
         </div>
-        <BasicFooter />
       </div>
     </>
   );

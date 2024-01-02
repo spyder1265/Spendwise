@@ -4,7 +4,7 @@ const config = {
   swcMinify: true,
 
   images: {
-    domains: ["firebasestorage.googleapis.com", "flowbite.s3.amazonaws.com"],
+    remotePatterns: [{ hostname: "flowbite.s3.amazonaws.com" }],
   },
   typescript: {
     ignoreBuildErrors: true,

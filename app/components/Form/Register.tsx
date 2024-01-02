@@ -233,7 +233,7 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
           />
           <div className="absolute right-2 mt-3 place-self-center justify-self-center">
             <Tooltip
-              content={show ? "Hide" : "Show"}
+              content={showVerified ? "Hide" : "Show"}
               placement="right"
               className="ml-1"
             >
@@ -241,7 +241,7 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
                 type="button"
                 disabled={isLoading}
                 className="text-gray-900 focus:outline-none dark:text-gray-400"
-                onClick={() => setShowVerified(!show)}
+                onClick={() => setShowVerified(!showVerified)}
               >
                 {showVerified ? (
                   <HiEyeOff className="h-5 w-5" />
