@@ -71,7 +71,7 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
             icon={HiMail}
             disabled={isLoading}
             required
-            autoComplete="firstname"
+            autoComplete="given-name"
             className="w-full outline-none focus:border-cyan-900 focus:ring-cyan-900"
             placeholder="John"
             color={errors.firstname && "failure"}
@@ -102,7 +102,7 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
             icon={HiMail}
             disabled={isLoading}
             required
-            autoComplete="lastname"
+            autoComplete="family-name"
             className="w-full outline-none focus:border-cyan-900 focus:ring-cyan-900"
             placeholder="Doe"
             color={errors.lastname && "failure"}
