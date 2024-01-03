@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React from "react";
 import { BasicNavbar } from "../components/Navbar/navbar";
 
 const Contact: React.FC = () => {
@@ -10,8 +10,8 @@ const Contact: React.FC = () => {
         <BasicNavbar />
       </div>
       <div className="mt-16">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl">
             <div className="text-center">
               <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
                 Contact Us
@@ -24,22 +24,24 @@ const Contact: React.FC = () => {
             <div className="mt-28">
               <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                 <div className="sm:col-span-1">
-                  <div className="shadow-md border overflow-hidden sm:rounded-lg border-gray-100">
+                  <div className="overflow-hidden border border-gray-100 shadow-md sm:rounded-lg">
                     <div className="px-4 py-5 sm:p-6">
-                      <h3 className="text-lg leading-6 font-medium">Contact Information</h3>
+                      <h3 className="text-lg font-medium leading-6">
+                        Contact Information
+                      </h3>
                       <div className="mt-6 max-w-xl text-sm text-gray-500">
                         <div className="flex flex-row">
                           <div className="mt-2">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="#2256ee"
-                            className="dark:fill-gray-100"
-                          >
-                            <path d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7" />
-                          </svg>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="#2256ee"
+                              className="dark:fill-gray-100"
+                            >
+                              <path d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7" />
+                            </svg>
                           </div>
                           <div className="ml-4">
                             <p>
@@ -49,55 +51,56 @@ const Contact: React.FC = () => {
                             </p>
                           </div>
                         </div>
-                        <div className="flex flex-row mt-6">
+                        <div className="mt-6 flex flex-row">
                           <div>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 32 32"
-                            fill="#2256ee"
-                            className="dark:fill-gray-100"
-                          >
-                            <path d="m20.33 21.48l2.24-2.24a2.19 2.19 0 0 1 2.34-.48l2.73 1.09a2.18 2.18 0 0 1 1.36 2v5A2.17 2.17 0 0 1 26.72 29C7.59 27.81 3.73 11.61 3 5.41A2.17 2.17 0 0 1 5.17 3H10a2.16 2.16 0 0 1 2 1.36l1.09 2.73a2.16 2.16 0 0 1-.47 2.34l-2.24 2.24s1.29 8.73 9.95 9.81" />
-                          </svg>
-                          </div>
-                          <div className="ml-4">
-                            <p>
-                              (123) 456-7890
-                            </p>
-                          </div>
-                        </div>
-                        <div className="flex flex-row mt-6">
-                          <div>
-                            <svg 
-                              xmlns="http://www.w3.org/2000/svg" 
-                              width="24" 
-                              height="24" 
-                              viewBox="0 0 24 24"
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 32 32"
                               fill="#2256ee"
                               className="dark:fill-gray-100"
-                              >
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z"/>
+                            >
+                              <path d="m20.33 21.48l2.24-2.24a2.19 2.19 0 0 1 2.34-.48l2.73 1.09a2.18 2.18 0 0 1 1.36 2v5A2.17 2.17 0 0 1 26.72 29C7.59 27.81 3.73 11.61 3 5.41A2.17 2.17 0 0 1 5.17 3H10a2.16 2.16 0 0 1 2 1.36l1.09 2.73a2.16 2.16 0 0 1-.47 2.34l-2.24 2.24s1.29 8.73 9.95 9.81" />
                             </svg>
                           </div>
                           <div className="ml-4">
-                            <a href="mailto:info@spendwise.com" className="hover:text-black dark:hover:text-white">  
+                            <p>(123) 456-7890</p>
+                          </div>
+                        </div>
+                        <div className="mt-6 flex flex-row">
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="#2256ee"
+                              className="dark:fill-gray-100"
+                            >
+                              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z" />
+                            </svg>
+                          </div>
+                          <div className="ml-4">
+                            <a
+                              href="mailto:info@spendwise.com"
+                              className="hover:text-black dark:hover:text-white"
+                            >
                               info@spendwise.com
                             </a>
                           </div>
                         </div>
-                        <div className="flex flex-row gap-2 mt-3 justify-center">
-                          <div className="h-[205px] w-full md:w-[470px] border border-solid border-gray-300 dark:border-gray-900 rounded-lg">
+                        <div className="mt-3 flex flex-row justify-center gap-2">
+                          <div className="h-[205px] w-full rounded-lg border border-solid border-gray-300 dark:border-gray-900 md:w-[470px]">
                             <iframe
-                              src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1669.2506532674254!2d-0.21002011625672304!3d5.688629185138829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9a0e15522909%3A0xd17d2158761e22ef!2sAcademic%20City%20University%20College!5e0!3m2!1sen!2sgh!4v1704262502263!5m2!1sen!2sgh'
-                              width='full'
-                              height='205'
-                              title='map location'
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1669.2506532674254!2d-0.21002011625672304!3d5.688629185138829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9a0e15522909%3A0xd17d2158761e22ef!2sAcademic%20City%20University%20College!5e0!3m2!1sen!2sgh!4v1704262502263!5m2!1sen!2sgh"
+                              width="full"
+                              height="205"
+                              title="map location"
                               allowFullScreen={false}
-                              loading='lazy'
-                              referrerPolicy='no-referrer-when-downgrade'
-                              className='border border-solid w-full md:w-[470px] border-gray-300 dark:border-gray-900 rounded-lg'
+                              loading="lazy"
+                              referrerPolicy="no-referrer-when-downgrade"
+                              className="w-full rounded-lg border border-solid border-gray-300 dark:border-gray-900 dark:invert md:w-[470px]"
                             ></iframe>
                           </div>
                         </div>
@@ -107,12 +110,14 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="sm:col-span-1">
-                  <div className="shadow-md border overflow-hidden sm:rounded-lg border-gray-100">
+                  <div className="overflow-hidden border border-gray-100 shadow-md sm:rounded-lg">
                     <div className="px-4 py-5 sm:p-6">
-                      <h3 className="text-lg leading-6 font-medium">Leave a Message</h3>
+                      <h3 className="text-lg font-medium leading-6">
+                        Leave a Message
+                      </h3>
                       <div className="mt-2">
                         <form>
-                          <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8 text-gray-700 dark:text-gray-400">
+                          <div className="grid grid-cols-1 gap-y-6 text-gray-700 dark:text-gray-400 sm:grid-cols-2 sm:gap-x-8">
                             <div className="sm:col-span-2">
                               <label
                                 htmlFor="name"
@@ -126,7 +131,7 @@ const Contact: React.FC = () => {
                                   name="name"
                                   id="name"
                                   autoComplete="name"
-                                  className="py-2 px-3 border border-gray-100 dark:border-gray-500 focus:ring-primary-600 focus:border-primary-600 block w-full shadow-sm sm:text-sm rounded-md dark:shadow-inner dark:bg-transparent"
+                                  className="block w-full rounded-md border border-gray-100 px-3 py-2 shadow-sm focus:border-primary-600 focus:ring-primary-600 dark:border-gray-500 dark:bg-transparent dark:shadow-inner sm:text-sm"
                                 />
                               </div>
                             </div>
@@ -143,7 +148,7 @@ const Contact: React.FC = () => {
                                   name="email"
                                   type="email"
                                   autoComplete="email"
-                                  className="py-2 px-3 border border-gray-100 dark:border-gray-500 focus:ring-primary-600 focus:border-primary-600 block w-full shadow-sm sm:text-sm rounded-md dark:bg-transparent"
+                                  className="block w-full rounded-md border border-gray-100 px-3 py-2 shadow-sm focus:border-primary-600 focus:ring-primary-600 dark:border-gray-500 dark:bg-transparent sm:text-sm"
                                 />
                               </div>
                             </div>
@@ -159,14 +164,14 @@ const Contact: React.FC = () => {
                                   id="message"
                                   name="message"
                                   rows={4}
-                                  className="py-2 px-3 border border-gray-100 dark:border-gray-500 focus:ring-primary-600 focus:border-primary-600 block w-full shadow-sm sm:text-sm rounded-md dark:bg-transparent"
+                                  className="block w-full rounded-md border border-gray-100 px-3 py-2 shadow-sm focus:border-primary-600 focus:ring-primary-600 dark:border-gray-500 dark:bg-transparent sm:text-sm"
                                 ></textarea>
                               </div>
                             </div>
                             <div className="sm:col-span-2">
                               <button
                                 type="submit"
-                                className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary-700 hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300 "
+                                className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-primary-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300 "
                               >
                                 Submit
                               </button>
