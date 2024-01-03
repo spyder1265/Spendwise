@@ -66,17 +66,13 @@ interface IBasicNavbar {
   onFormChange?: () => void;
 }
 
-export const BasicNavbar: FC<IBasicNavbar> = ({
-  isLogin,
-  isAuth,
-  onFormChange,
-}) => {
+export const BasicNavbar: FC<IBasicNavbar> = ({ isLogin, isAuth }) => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const navigation = [
     { name: "Home", href: "/", isActive: pathname === "/" },
     { name: "About", href: "/about", isActive: pathname === "/about" },
-    { name: "Pricing", href: "#", isActive: pathname === "/pricing" },
+    { name: "Pricing", href: "/pricing", isActive: pathname === "/pricing" },
     { name: "Contact", href: "#", isActive: pathname === "/contact" },
   ];
 
@@ -102,7 +98,7 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
               </Navbar.Brand>
             </div>
             <div>
-              <NavbarCollapse className="absolute inset-x-0 top-0 mt-[74px] w-full items-center justify-between  bg-transparent shadow-none transition-transform duration-700 dark:bg-transparent md:relative md:mt-0 md:border-none md:bg-transparent md:p-0 lg:order-1 lg:flex lg:w-auto">
+              <NavbarCollapse className="absolute inset-x-0 top-0 mt-[72px] w-full items-center justify-between bg-gray-50  shadow-none transition-transform duration-700 dark:bg-neutral-900 md:relative md:mt-0 md:border-none md:bg-transparent md:p-0 dark:md:bg-transparent lg:order-1 lg:flex lg:w-auto">
                 {navigation.map((item, index) => (
                   <NavbarLink
                     key={index}
@@ -120,7 +116,7 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
             <div className="flex h-full items-center">
               {!isAuth ? (
                 <a
-                  href="auth"
+                  href="auth?login"
                   className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
                 >
                   login
@@ -128,13 +124,13 @@ export const BasicNavbar: FC<IBasicNavbar> = ({
                 </a>
               ) : (
                 <>
-                  <button
-                    onClick={() => onFormChange && onFormChange()}
+                  <a
+                    href={isLogin ? "auth?register" : "auth?login"}
                     className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
                   >
-                    {isLogin ? "register" : "Login"}
+                    {isLogin ? "Register" : "Login"}
                     <BiLock className="ml-2 h-5 w-5" />
-                  </button>
+                  </a>
                 </>
               )}
 

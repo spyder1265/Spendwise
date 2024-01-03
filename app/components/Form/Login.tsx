@@ -58,7 +58,7 @@ const Login: React.FC<ILogin> = ({ onSubmit }) => {
           disabled={isLoading}
           required
           autoComplete="email"
-          className="relative w-full"
+          className="w-full outline-none focus:border-cyan-900 focus:ring-cyan-900"
           placeholder="name@company.com"
           color={errors.email && "failure"}
           {...register("email")}
@@ -93,14 +93,10 @@ const Login: React.FC<ILogin> = ({ onSubmit }) => {
             color={errors.email ? "failure" : "gray"}
             {...register("password")}
             helperText={
-              errors.password ? (
-                <p className="text-red-500">
+              errors.password && (
+                <span className="text-red-500">
                   <span className="font-medium">invalid</span> Password!
-                </p>
-              ) : (
-                <p className="text-sm text-gray-500">
-                  Password must be at least 8 characters long
-                </p>
+                </span>
               )
             }
           />
@@ -126,17 +122,32 @@ const Login: React.FC<ILogin> = ({ onSubmit }) => {
           </div>
         </div>
       </div>
-      {/* forgot password */}
-      <div className="flex justify-end">
-        <a
-          href="auth?forgot"
-          className={`text-base 
-            text-blue-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-gray-300
-          `}
-        >
-          Forgot password?
-        </a>
+      {/* dont have an account and forgot password */}
+      <div className="flex w-full flex-col gap-4 py-2">
+        <div className="flex w-full items-center justify-end">
+          <span className="text-sm text-gray-500">
+            Forgot password?{" "}
+            <a
+              href="auth?forgot-password"
+              className="text-blue-600 hover:underline dark:text-blue-500"
+            >
+              Reset
+            </a>
+          </span>
+        </div>
+        <div className="flex w-full items-center justify-start">
+          <span className="text-sm text-gray-500">
+            Don't have an account?{" "}
+            <a
+              href="auth?register"
+              className="text-blue-600 hover:underline dark:text-blue-500"
+            >
+              Register
+            </a>
+          </span>
+        </div>
       </div>
+
       {/* Submit button */}
       <div>
         <button

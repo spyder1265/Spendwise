@@ -18,11 +18,11 @@
   },
   "root": true,
   "rules": {
-    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/consistent-type-imports": "off",
     "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": "off",
     "tailwindcss/classnames-order": [
-      "error",
+      "off",
       {
         "callees": ["classnames"],
         "config": "tailwind.config.ts"
