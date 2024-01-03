@@ -88,7 +88,6 @@ const Contact: React.FC = () => {
                           </div>
                         </div>
                         <div className="flex flex-row gap-2 mt-3 justify-center">
-                          {/* <MapPinIcon className='hidden md:flex h-14' /> */}
                           <div className="h-[205px] w-full md:w-[470px] border border-solid border-gray-300 dark:border-gray-900 rounded-lg">
                             <iframe
                               src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1669.2506532674254!2d-0.21002011625672304!3d5.688629185138829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9a0e15522909%3A0xd17d2158761e22ef!2sAcademic%20City%20University%20College!5e0!3m2!1sen!2sgh!4v1704262502263!5m2!1sen!2sgh'
@@ -192,7 +191,7 @@ const Contact: React.FC = () => {
               </span>
               <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
                 <a
-                  href="#link"
+                  href="#facebook"
                   className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                 >
                   <svg
@@ -209,7 +208,7 @@ const Contact: React.FC = () => {
                   </svg>
                 </a>
                 <a
-                  href="#link"
+                  href="#instagram"
                   className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                 >
                   <svg
@@ -226,7 +225,7 @@ const Contact: React.FC = () => {
                   </svg>
                 </a>
                 <a
-                  href="#link"
+                  href="#twitter"
                   className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                 >
                   <svg
@@ -239,7 +238,7 @@ const Contact: React.FC = () => {
                   </svg>
                 </a>
                 <a
-                  href="#link"
+                  href="#github"
                   className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                 >
                   <svg
@@ -256,7 +255,7 @@ const Contact: React.FC = () => {
                   </svg>
                 </a>
                 <a
-                  href="#link"
+                  href="#dribbble"
                   className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                 >
                   <svg
