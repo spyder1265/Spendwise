@@ -3,8 +3,6 @@ import { Statistic } from "antd";
 import { Label, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-import { BiArrowBack } from "react-icons/bi";
 import { HiMail } from "react-icons/hi";
 import * as yup from "yup";
 import OTPInput from "./Otp";
@@ -29,7 +27,6 @@ const PasswordReset: React.FC<IPasswordReset> = () => {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -38,7 +35,6 @@ const PasswordReset: React.FC<IPasswordReset> = () => {
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState<"email" | "code">("email");
   const [countdown, setCountdown] = useState(true);
-  const [secureEmail, setSecureEmail] = useState("");
 
   const submit = async () => {
     setIsLoading(true);
@@ -47,34 +43,11 @@ const PasswordReset: React.FC<IPasswordReset> = () => {
       //   if yes, send email and setStep to code
       //   if no, setStep to email and show error
 
-      if (step === "email") {
-        const email = getValues("email");
-        // only show first and last letter of email and everything else after @ symbol
-        const secureEmail = `${email[0]}*****${email[email.indexOf("@") - 1]}@${
-          email.split("@")[1]
-        }`;
-        setSecureEmail(secureEmail);
-
-        setStep("code");
-      } else if (step === "code") {
-        if (otp) {
-          //   check if otp is correct
-          //   if yes, setStep to password
-          //   if no, show error
-
-          console.log(otp);
-
-          if (otp === "1234") {
-            toast.success("Verified");
-          } else {
-            toast.error("Invalid OTP");
-          }
-        } else {
-          toast.error("Invalid OTP");
-        }
+      if (otp) {
+        console.log(otp);
       }
+      setStep("code");
     }
-
     setIsLoading(false);
   };
 
@@ -143,25 +116,19 @@ const PasswordReset: React.FC<IPasswordReset> = () => {
                 value={otp}
                 shouldAutoFocus
                 skipDefaultStyles
-                renderInput={(props, index) => (
-                  <input
-                    disabled={isLoading}
-                    id={"otp-field" + (index + 1).toString()}
-                    required
-                    {...props}
-                  />
+                renderInput={(props) => (
+                  <input disabled={isLoading} {...props} />
                 )}
               />
             </div>
             <div className="flex w-full items-center justify-center">
               <p className="text-sm text-gray-500 dark:text-gray-300">
-                Enter the 4-digit code sent to your
-                <span className="font-medium"> {secureEmail}</span>
+                Enter the 4-digit code sent to your email
               </p>
             </div>
             <div className="flex w-full items-center justify-center">
-              <span className="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-gray-300">
-                <span>Didn't recieve the code? </span>
+              <span className="inline-flex items-center gap-3 text-sm text-gray-500 dark:text-gray-300">
+                <span>Didn't recieve the code ? </span>
                 {countdown ? (
                   <Countdown
                     value={deadline}
@@ -189,17 +156,6 @@ const PasswordReset: React.FC<IPasswordReset> = () => {
                 className="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 disabled:opacity-70 "
               >
                 Verify
-              </button>
-            </div>
-            <div className="flex w-full items-center justify-center">
-              <button
-                type="button"
-                onClick={() => setStep("email")}
-                disabled={isLoading}
-                className="inline-flex items-center justify-center justify-self-center rounded-lg  text-center text-base font-medium text-primary-500 hover:text-primary-600 focus:ring-0 disabled:opacity-70 "
-              >
-                <BiArrowBack className="mr-1" />
-                <span>Go back</span>
               </button>
             </div>
           </form>

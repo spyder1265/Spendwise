@@ -3,7 +3,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Label, TextInput, Tooltip } from "flowbite-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { FaApple } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { HiEye, HiEyeOff, HiKey, HiMail } from "react-icons/hi";
@@ -21,12 +20,11 @@ const schema = yup
   .required();
 
 // eslint-disable-next-line react/prop-types
-const Login: React.FC<ILogin> = () => {
+const Login: React.FC<ILogin> = ({ onSubmit }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -35,40 +33,8 @@ const Login: React.FC<ILogin> = () => {
 
   const submit = async () => {
     setIsLoading(true);
-    if (!errors.email && !errors.password) {
-      const promise = new Promise<boolean>((resolve, reject) => {
-        setTimeout(() => {
-          fetch("https://randomuser.me/api/")
-            .then((response) => response.json())
-            .then(({ results }) => {
-              const apiEmail = results[0].email;
-              const apiPassword = results[0].password;
-              const formEmail = getValues("email");
-              const formPassword = getValues("password");
-
-              const isAuthenticated =
-                apiEmail === formEmail && apiPassword === formPassword;
-              resolve(isAuthenticated);
-            })
-            .catch(reject);
-        }, 2000);
-      });
-
-      await promise
-        .then((isAuthenticated) => {
-          setIsLoading(false);
-          if (isAuthenticated) {
-            toast.success("Authenticated successfully", {
-              duration: 2000,
-            });
-          } else {
-            toast.error("Authentication failed");
-          }
-        })
-        .catch((error) => {
-          console.error("An error occurred:", error);
-          setIsLoading(false);
-        });
+    if (!errors) {
+      await onSubmit();
     }
     setIsLoading(false);
   };
@@ -187,7 +153,7 @@ const Login: React.FC<ILogin> = () => {
         <button
           type="submit"
           disabled={isLoading}
-          className="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 disabled:bg-primary-700 disabled:opacity-60 "
+          className="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 "
         >
           Login
         </button>

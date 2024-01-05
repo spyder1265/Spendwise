@@ -11,7 +11,7 @@ const Payment = () => {
   };
 
   return (
-    <div className="grid place-content-center">
+    <div className="flex h-screen w-full flex-col items-center justify-around pt-[72px] md:overflow-y-hidden">
       <div className="max-w-2xl p-6 border border-gray-200 rounded-lg shadow dark:border-gray-700">
         <h5 className="mb-2 text-2xl font-bold text-center text-gray-900 dark:text-white">Payment Information</h5>
         <hr className="mx-auto my-6 max-w-screen-xl border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
@@ -59,19 +59,21 @@ const Payment = () => {
             </div>
             <input type="number" id="card-number-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full ps-10 p-2.5  dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="0123 4567 8901 2345"/>
           </div>
-          <label htmlFor="expiry-date-icon" className="block my-2 text-sm font-medium text-gray-900 dark:text-white">Expiry Date</label>
-          <div className="relative">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" aria-hidden="true" className="w-4 h-4 text-gray-500 dark:fill-gray-100"><g fill="none"><rect width="18" height="15" x="3" y="6" stroke="#2256ee" strokeWidth="2" className="dark:stroke-gray-100" rx="2"/><path fill="#2256ee" className="dark:fill-gray-100" d="M3 10c0-1.886 0-2.828.586-3.414C4.172 6 5.114 6 7 6h10c1.886 0 2.828 0 3.414.586C21 7.172 21 8.114 21 10z"/><path stroke="#2256ee" strokeLinecap="round" strokeWidth="2" className="dark:stroke-gray-100" d="M7 3v3m10-3v3"/></g></svg>
+          <div className="">
+            <label htmlFor="expiry-date-icon" className="block my-2 text-sm font-medium text-gray-900 dark:text-white">Expiry Date</label>
+            <div className="relative">
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" aria-hidden="true" className="w-4 h-4 text-gray-500 dark:fill-gray-100"><g fill="none"><rect width="18" height="15" x="3" y="6" stroke="#2256ee" strokeWidth="2" className="dark:stroke-gray-100" rx="2"/><path fill="#2256ee" className="dark:fill-gray-100" d="M3 10c0-1.886 0-2.828.586-3.414C4.172 6 5.114 6 7 6h10c1.886 0 2.828 0 3.414.586C21 7.172 21 8.114 21 10z"/><path stroke="#2256ee" strokeLinecap="round" strokeWidth="2" className="dark:stroke-gray-100" d="M7 3v3m10-3v3"/></g></svg>
+              </div>
+              <input type="date" id="expiry-date-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full ps-10 p-2.5  dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="mm-yy"/>
             </div>
-            <input type="date" id="expiry-date-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full ps-10 p-2.5  dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="mm-yy"/>
-          </div>
-          <label htmlFor="cvv-icon" className="block my-2 text-sm font-medium text-gray-900 dark:text-white">CVV</label>
-          <div className="relative">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 1024 1024" fill="#2256ee" aria-hidden="true" className="w-4 h-4 text-gray-500 dark:fill-gray-100"><path d="M872 394c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8H708V152c0-4.4-3.6-8-8-8h-64c-4.4 0-8 3.6-8 8v166H400V152c0-4.4-3.6-8-8-8h-64c-4.4 0-8 3.6-8 8v166H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h168v236H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h168v166c0 4.4 3.6 8 8 8h64c4.4 0 8-3.6 8-8V706h228v166c0 4.4 3.6 8 8 8h64c4.4 0 8-3.6 8-8V706h164c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8H708V394zM628 630H400V394h228z"/></svg>
+            <label htmlFor="cvv-icon" className="block my-2 text-sm font-medium text-gray-900 dark:text-white">CVV</label>
+            <div className="relative">
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 1024 1024" fill="#2256ee" aria-hidden="true" className="w-4 h-4 text-gray-500 dark:fill-gray-100"><path d="M872 394c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8H708V152c0-4.4-3.6-8-8-8h-64c-4.4 0-8 3.6-8 8v166H400V152c0-4.4-3.6-8-8-8h-64c-4.4 0-8 3.6-8 8v166H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h168v236H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h168v166c0 4.4 3.6 8 8 8h64c4.4 0 8-3.6 8-8V706h228v166c0 4.4 3.6 8 8 8h64c4.4 0 8-3.6 8-8V706h164c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8H708V394zM628 630H400V394h228z"/></svg>
+              </div>
+              <input type="text" id="cvv-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full ps-10 p-2.5  dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="123" maxLength={4} />
             </div>
-            <input type="text" id="cvv-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full ps-10 p-2.5  dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="123"/>
           </div>
           <label htmlFor="billing-address-icon" className="block my-2 text-sm font-medium text-gray-900 dark:text-white">Billing Address</label>
           <div className="relative">
@@ -80,7 +82,7 @@ const Payment = () => {
             </div>
             <input type="text" id="billing-address-icon" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full ps-10 p-2.5  dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="123 Main St"/>
           </div>
-          <label htmlFor="cvv-icon" className="block my-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+          <label htmlFor="email-icon" className="block my-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
           <div className="relative">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
               <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="#2256ee" aria-hidden="true" className="w-4 h-4 text-gray-500 dark:fill-gray-100"><path d="m20 8l-8 5l-8-5V6l8 5l8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
@@ -90,35 +92,36 @@ const Payment = () => {
 
           <div className="flex mt-4">
             <div className="flex items-center mb-4">
-              <input id="option-1" type="radio" name="countries" value="USA" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-primary-300 ml-[5px] dark:focus:ring-primary-600 dark:focus:bg-primary-600 dark:bg-gray-700 dark:border-gray-600" />
+              <input id="option-1" type="radio" name="pricing-plan" value="Invoicing Plan" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-primary-300 ml-[5px] dark:focus:ring-primary-600 dark:focus:bg-primary-600 dark:bg-gray-700 dark:border-gray-600" />
               <label htmlFor="country-option-1" className="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300">
                 Invoicing Plan
               </label>
             </div>
 
             <div className="flex items-center mb-4">
-              <input id="option-2" type="radio" name="countries" value="Germany" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-primary-300 ml-[5px] dark:focus:ring-primary-600 dark:focus:bg-primary-600 dark:bg-gray-700 dark:border-gray-600" />
+              <input id="option-2" type="radio" name="pricing-plan" value="Company Plan" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-primary-300 ml-[5px] dark:focus:ring-primary-600 dark:focus:bg-primary-600 dark:bg-gray-700 dark:border-gray-600" />
               <label htmlFor="country-option-2" className="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Company Plan
               </label>
             </div>
 
             <div className="flex items-center mb-4">
-              <input id="option-3" type="radio" name="countries" value="Spain" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-primary-300 ml-[5px] dark:focus:ring-primary-600 dark:bg-gray-700 dark:border-gray-600" />
+              <input id="option-3" type="radio" name="pricing-plan" value="Enterprise Plan" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-primary-300 ml-[5px] dark:focus:ring-primary-600 dark:bg-gray-700 dark:border-gray-600" />
               <label htmlFor="country-option-3" className="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Enterprise Plan
               </label>
             </div>
           </div>
+          <div className="flex items-start mb-5 ml-[5px]">
+            <div className="flex items-center h-5">
+              <input id="terms" type="checkbox" value="" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+            </div>
+            <label htmlFor="terms" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" className="text-primary-600 hover:underline dark:text-primary-500">terms and conditions</a></label>
+          </div>
+          <input type="submit" value="Submit" className="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"/>
         </form>
-
-        
       </div>
     </div>
-    
-
-
-    
   );
 };
 

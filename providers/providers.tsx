@@ -3,7 +3,6 @@ import { flowbiteTheme } from "@/app/theme";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Flowbite } from "flowbite-react";
 import React from "react";
-import ToastProvider from "./ToastProvider";
 
 interface Iproviders {
   children: React.ReactNode;
@@ -13,10 +12,7 @@ const providers: React.FC<Iproviders> = ({ children }) => {
   return (
     <ClientOnly>
       <AntdRegistry>
-        <Flowbite theme={{ theme: flowbiteTheme }}>
-          <ToastProvider />
-          {children}
-        </Flowbite>
+        <Flowbite theme={{ theme: flowbiteTheme }}>{children}</Flowbite>
       </AntdRegistry>
     </ClientOnly>
   );
