@@ -2,8 +2,10 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Checkbox, Label, TextInput, Tooltip } from "flowbite-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { HiEye, HiEyeOff, HiKey, HiMail } from "react-icons/hi";
 import * as yup from "yup";
 
@@ -25,29 +27,59 @@ const schema = yup
     agree: yup
       .boolean()
       .oneOf([true], "Please agree to the terms and conditions"),
-    // promotional offers checkbox
     promotion: yup.boolean(),
   })
   .required();
 
-// eslint-disable-next-line react/prop-types
-const Register: React.FC<IRegister> = ({ onSubmit }) => {
+const Register: React.FC<IRegister> = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm({
     resolver: yupResolver(schema),
   });
   const [show, setShow] = useState(false);
   const [showVerified, setShowVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const submit = async () => {
     setIsLoading(true);
-    if (!errors) {
-      await onSubmit();
+    if (!errors.root) {
+      const promise = new Promise<string>((resolve, reject) => {
+        setTimeout(() => {
+          fetch("https://randomuser.me/api/")
+            .then((response) => response.json())
+            .then(({ results }) => {
+              const apiEmail = results[0].email;
+              const apiPassword = results[0].password;
+              const formEmail = getValues("email");
+              const formPassword = getValues("password");
+              const isAuthenticated =
+                apiEmail === formEmail && apiPassword === formPassword;
+
+              if (!isAuthenticated) {
+                resolve("Authenticated successfully");
+                setTimeout(() => {
+                  router.push("/dashboard?Onboarding=true");
+                }, 1000);
+              }
+              reject(new Error("Authentication failed"));
+            })
+            .catch(reject);
+        }, 2000);
+      });
+      toast.promise(promise, {
+        loading: "Registering...",
+        success: (message) => message,
+        error: (error) => error.message,
+      });
+    } else {
+      console.log("Authentication failed");
     }
+
     setIsLoading(false);
   };
 
