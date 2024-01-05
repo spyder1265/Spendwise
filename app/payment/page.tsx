@@ -1,8 +1,7 @@
 "use client";
 
-import React from 'react';
-import Payment from '../components/Payment/payment';
-import { BasicNavbar } from '../components/Navbar/navbar';
+import { BasicNavbar } from "../components/Navbar/navbar";
+import Payment from "../components/Payment/payment";
 
 const PaymentPage = () => {
   return (
