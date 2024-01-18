@@ -24,7 +24,7 @@ export const DashboardNavbar: FC<Record<string, never>> = function () {
         fluid
         className="fixed top-0 z-30 w-full border-b border-gray-200 bg-white p-0 dark:border-gray-700 dark:bg-neutral-800 sm:p-0"
       >
-        <div className="w-full p-3 pr-4">
+        <div className="relative w-full p-3 pr-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <button
@@ -41,14 +41,19 @@ export const DashboardNavbar: FC<Record<string, never>> = function () {
               </button>
               <Navbar.Brand href="/">
                 <Image
-                  alt="Flowbite logo"
-                  height="24"
-                  src="/favicon.png"
-                  width="24"
+                  alt="logo"
+                  height="100"
+                  src="/dark.png"
+                  width="100"
+                  className="absolute -z-10 my-auto ml-4 hidden scale-150 self-center dark:block"
                 />
-                <span className="self-center whitespace-nowrap px-3 text-xl font-semibold dark:text-white">
-                  Flowbite
-                </span>
+                <Image
+                  alt="logo"
+                  height="100"
+                  src="/light.png"
+                  width="100"
+                  className="absolute -z-10 my-auto ml-4 block scale-150 self-center dark:hidden"
+                />
               </Navbar.Brand>
             </div>
             <DarkThemeToggle />
@@ -80,21 +85,29 @@ export const BasicNavbar: FC<IBasicNavbar> = ({ isLogin, isAuth }) => {
     <>
       <Navbar
         fluid
-        className="fixed top-0 z-30 w-full border-b border-gray-100 bg-white p-0 dark:border-gray-700 dark:bg-neutral-900 sm:p-0"
+        className="fixed top-0 z-30 max-h-[72px] w-full border-b border-gray-100 bg-white p-0 dark:border-gray-700 dark:bg-neutral-900 sm:p-0"
       >
-        <div className="w-full p-3 pr-4">
+        <div className="relative w-full p-3 pr-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <Navbar.Brand href="/">
+              <Navbar.Brand href="/" className="max-h-[72px]">
                 <Image
-                  alt="Flowbite logo"
-                  height="24"
-                  src="/favicon.png"
-                  width="24"
+                  alt="logo"
+                  height="100"
+                  src="/dark.png"
+                  width="100"
+                  className="absolute -z-10 my-auto ml-4 hidden scale-150 self-center dark:block"
                 />
-                <span className="self-center whitespace-nowrap px-3 text-xl font-semibold dark:text-white">
+                <Image
+                  alt="logo"
+                  height="100"
+                  src="/light.png"
+                  width="100"
+                  className="absolute -z-10 my-auto ml-4 block scale-150 self-center dark:hidden"
+                />
+                {/* <span className="self-center whitespace-nowrap px-3 text-xl font-semibold dark:text-white">
                   Spendwise
-                </span>
+                </span> */}
               </Navbar.Brand>
             </div>
             <div>

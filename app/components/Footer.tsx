@@ -8,17 +8,21 @@ const Footer: React.FC<IFooter> = () => {
       <div className="mx-auto max-w-screen-xl">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <a href="https://flowbite.com" className="flex items-center">
+            <a href="/" className="flex items-center">
               <Image
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="mr-3 h-8"
-                alt="FlowBite Logo"
-                width="32"
-                height="32"
+                alt="logo"
+                height="24"
+                src="/dark.png"
+                width="100"
+                className="absolute my-auto ml-4 hidden scale-150 self-center dark:block"
               />
-              <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
-                Spendwise
-              </span>
+              <Image
+                alt="logo"
+                height="24"
+                src="/light.png"
+                width="100"
+                className="absolute my-auto ml-4 block scale-150 self-center dark:hidden"
+              />
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
