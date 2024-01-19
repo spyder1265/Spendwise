@@ -1,9 +1,10 @@
 import { useSidebarContext } from "@/context/SidebarContext";
 import { Sidebar } from "flowbite-react";
+import { signOut } from "next-auth/react";
 import type { FC } from "react";
-import { BiBuoy } from "react-icons/bi";
+import { FaCog } from "react-icons/fa";
+import { FaArrowRightFromBracket } from "react-icons/fa6";
 import {
-  HiArrowSmRight,
   HiChartPie,
   HiInbox,
   HiShoppingBag,
@@ -22,11 +23,11 @@ export const DashboardSidebar: FC = function () {
       collapsed={isCollapsed}
       id={"sidebar"}
       className={twMerge(
-        "fixed inset-y-0 left-0 z-20 mt-16 flex h-full shrink-0 flex-col border-r border-gray-200 duration-75 dark:border-gray-700 lg:flex",
+        "fixed inset-y-0 left-0 z-20 mt-16 flex h-full shrink-0 flex-col justify-between border-r border-gray-200 duration-75 dark:border-gray-700 lg:flex",
         isCollapsed && "hidden w-16",
       )}
     >
-      <Sidebar.Items>
+      <Sidebar.Items className="flex h-[87vh] flex-col justify-between">
         <Sidebar.ItemGroup>
           <Sidebar.Item href="#Dashboard" icon={HiChartPie}>
             Dashboard
@@ -43,22 +44,23 @@ export const DashboardSidebar: FC = function () {
           <Sidebar.Item href="#Products" icon={HiShoppingBag}>
             Products
           </Sidebar.Item>
-          <Sidebar.Item href="#SignIn" icon={HiArrowSmRight}>
-            Sign In
-          </Sidebar.Item>
           <Sidebar.Item href="#SignUp" icon={HiTable}>
             Sign Up
           </Sidebar.Item>
         </Sidebar.ItemGroup>
-        <Sidebar.ItemGroup>
+        <Sidebar.ItemGroup className="flex flex-col gap-1">
           <Sidebar.Item href="#Upgrade" icon={HiChartPie}>
             Upgrade to Pro
           </Sidebar.Item>
-          <Sidebar.Item href="#Documentation" icon={HiViewBoards}>
-            Documentation
+          <Sidebar.Item href="#Settings" icon={FaCog}>
+            Settings
           </Sidebar.Item>
-          <Sidebar.Item href="#Help" icon={BiBuoy}>
-            Help
+          <Sidebar.Item
+            onClick={() => signOut()}
+            className="self-end justify-self-end"
+            icon={FaArrowRightFromBracket}
+          >
+            Logout
           </Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar.Items>

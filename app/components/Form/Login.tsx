@@ -1,8 +1,9 @@
 "use client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Label, TextInput, Tooltip } from "flowbite-react";
+import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FaApple } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
@@ -26,29 +27,26 @@ const Login: React.FC<ILogin> = () => {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
   } = useForm({
     resolver: yupResolver(schema),
   });
   const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const submit = async () => {
+  const submit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
     if (!errors.email && !errors.password) {
       const promise = new Promise<boolean>((resolve, reject) => {
         setTimeout(() => {
-          fetch("https://randomuser.me/api/")
-            .then((response) => response.json())
-            .then(({ results }) => {
-              const apiEmail = results[0].email;
-              const apiPassword = results[0].password;
-              const formEmail = getValues("email");
-              const formPassword = getValues("password");
-
-              const isAuthenticated =
-                apiEmail === formEmail && apiPassword === formPassword;
-              resolve(isAuthenticated);
+          signIn("credentials", {
+            redirect: false,
+            ...data,
+          })
+            .then((callback) => {
+              if (callback?.ok) {
+                resolve(true);
+              }
+              resolve(false);
             })
             .catch(reject);
         }, 2000);
@@ -69,6 +67,18 @@ const Login: React.FC<ILogin> = () => {
           console.error("An error occurred:", error);
           setIsLoading(false);
         });
+    }
+    setIsLoading(false);
+  };
+
+  const handleLoginWith = async (provider: string) => {
+    setIsLoading(true);
+    const result = await signIn(provider, {
+      redirect: false,
+      callbackUrl: "/dashboard",
+    });
+    if (result?.error) {
+      toast.error("Unauthorized");
     }
     setIsLoading(false);
   };
@@ -216,6 +226,7 @@ const Login: React.FC<ILogin> = () => {
           color="dark"
           disabled={isLoading}
           className="inline-flex w-full items-center"
+          onClick={() => handleLoginWith("google")}
         >
           <FcGoogle className="h-5 w-5" />
           <span className=" ml-2 text-sm font-medium text-white dark:text-gray-400">
