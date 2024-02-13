@@ -2,6 +2,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Label, TextInput, Tooltip } from "flowbite-react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -32,11 +33,12 @@ const Login: React.FC<ILogin> = () => {
   });
   const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const submit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
     if (!errors.email && !errors.password) {
-      const promise = new Promise<boolean>((resolve, reject) => {
+      const promise = new Promise<string>((resolve, reject) => {
         setTimeout(() => {
           signIn("credentials", {
             redirect: false,
@@ -44,24 +46,22 @@ const Login: React.FC<ILogin> = () => {
           })
             .then((callback) => {
               if (callback?.ok) {
-                resolve(true);
+                resolve("Login successful!");
+                setTimeout(() => {
+                  router.push("/dashboard");
+                }, 1000);
               }
-              resolve(false);
+              reject(new Error("Invalid credentials"));
             })
             .catch(reject);
         }, 2000);
       });
 
-      await promise
-        .then((isAuthenticated) => {
-          setIsLoading(false);
-          if (isAuthenticated) {
-            toast.success("Authenticated successfully", {
-              duration: 2000,
-            });
-          } else {
-            toast.error("Authentication failed");
-          }
+      toast
+        .promise(promise, {
+          loading: "Logging in...",
+          success: (message) => message,
+          error: (error) => error.message,
         })
         .catch((error) => {
           console.error("An error occurred:", error);

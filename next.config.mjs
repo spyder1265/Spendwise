@@ -4,14 +4,29 @@ const config = {
   swcMinify: true,
 
   images: {
-    remotePatterns: [{ hostname: "flowbite.s3.amazonaws.com" }],
+    remotePatterns: [
+      { hostname: "flowbite.s3.amazonaws.com" },
+      {
+        hostname: "res.cloudinary.com",
+      },
+      {
+        hostname: "wallpaperaccess.com",
+      },
+      {
+        hostname: "avatars.githubusercontent.com",
+      },
+      {
+        hostname: "lh3.googleusercontent.com",
+      },
+      {
+        hostname: "images.unsplash.com",
+      },
+    ],
   },
   typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
 };

@@ -11,7 +11,7 @@ interface Iproviders {
   children: React.ReactNode;
 }
 
-const providers: React.FC<Iproviders> = ({ children }) => {
+const Providers: React.FC<Iproviders> = ({ children }) => {
   return (
     <ClientOnly>
       <SessionProvider>
@@ -25,4 +25,4 @@ const providers: React.FC<Iproviders> = ({ children }) => {
     </ClientOnly>
   );
 };
-export default providers;
+export default Providers;
