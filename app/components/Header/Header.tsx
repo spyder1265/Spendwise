@@ -1,8 +1,11 @@
 import Image from "next/image";
+import { BiArrowToRight } from "react-icons/bi";
 
-interface IHeader {}
+interface IHeader {
+  isLoggedIn?: boolean;
+}
 
-const Header: React.FC<IHeader> = () => {
+const Header = ({ isLoggedIn }: IHeader) => {
   return (
     <div className="bg-white dark:bg-neutral-900">
       <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-8 lg:py-16 xl:gap-0">
@@ -62,30 +65,44 @@ const Header: React.FC<IHeader> = () => {
             From checkout to global sales tax compliance, companies around the
             world use Flowbite to simplify their payment stack.
           </p>
-          <a
-            href="auth?register"
-            className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
-          >
-            Get started
-            <svg
-              className="-mr-1 ml-2 h-5 w-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </a>
-          <a
-            href="#sales"
-            className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-center text-base font-medium text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:ring-gray-800"
-          >
-            Speak to Sales
-          </a>
+          {isLoggedIn ? (
+            <div className="flex h-full items-center gap-2">
+              <a
+                href="/dashboard"
+                className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
+              >
+                Dashboard
+                <BiArrowToRight className="ml-2 h-5 w-5" />
+              </a>
+            </div>
+          ) : (
+            <>
+              <a
+                href="auth?register"
+                className="mr-3 inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-gray-100 dark:text-gray-500 dark:hover:bg-gray-200 dark:focus:ring-gray-300"
+              >
+                Get started
+                <svg
+                  className="-mr-1 ml-2 h-5 w-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="#sales"
+                className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-center text-base font-medium text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:ring-gray-800"
+              >
+                Speak to Sales
+              </a>
+            </>
+          )}
         </div>
         <div className="animate__animated animate__fadeInRight hidden lg:col-span-5 lg:mt-0 lg:flex">
           <Image

@@ -1,6 +1,6 @@
 "use client";
-
 import { SidebarProvider, useSidebarContext } from "@/context/SidebarContext";
+import { SessionProvider } from "next-auth/react";
 import type { FC, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 import ClientOnly from "../components/ClientOnly";
@@ -26,11 +26,11 @@ const DashboardLayoutContent: FC<PropsWithChildren> = function ({ children }) {
         <div
           id="main-content"
           className={twMerge(
-            "relative h-full w-full overflow-y-auto bg-gray-50 dark:bg-neutral-900",
-            isCollapsed ? "lg:ml-[4.5rem]" : "lg:ml-64",
+            "relative h-full w-full overflow-y-auto overflow-x-hidden bg-gray-50 dark:bg-neutral-900",
+            isCollapsed ? "lg:ml-[4.1rem]" : "lg:ml-64",
           )}
         >
-          {children}
+          <SessionProvider>{children}</SessionProvider>
         </div>
       </div>
     </ClientOnly>

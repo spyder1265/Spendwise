@@ -1,9 +1,13 @@
 "use client";
 import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
 import { Checkbox, Label, TextInput, Tooltip } from "flowbite-react";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { HiEye, HiEyeOff, HiKey, HiMail } from "react-icons/hi";
 import * as yup from "yup";
 
@@ -25,13 +29,11 @@ const schema = yup
     agree: yup
       .boolean()
       .oneOf([true], "Please agree to the terms and conditions"),
-    // promotional offers checkbox
     promotion: yup.boolean(),
   })
   .required();
 
-// eslint-disable-next-line react/prop-types
-const Register: React.FC<IRegister> = ({ onSubmit }) => {
+const Register: React.FC<IRegister> = () => {
   const {
     register,
     handleSubmit,
@@ -42,11 +44,44 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
   const [show, setShow] = useState(false);
   const [showVerified, setShowVerified] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
-  const submit = async () => {
+  const submit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
-    if (!errors) {
-      await onSubmit();
+    if (
+      !errors.email &&
+      !errors.password &&
+      !errors.verifyPassword &&
+      !errors.agree &&
+      !errors.firstname &&
+      !errors.lastname
+    ) {
+      const promise = new Promise<string>((resolve, reject) => {
+        setTimeout(() => {
+          axios.post("/api/user", data).then(() => {
+            signIn("credentials", {
+              redirect: false,
+              ...data,
+            })
+              .then((callback) => {
+                if (callback?.ok) {
+                  resolve("Welcome");
+                  setTimeout(() => {
+                    router.replace("/auth?register&&payment");
+                  }, 1500);
+                } else {
+                  reject(new Error("Error"));
+                }
+              })
+              .catch(reject);
+          });
+        }, 2000);
+      });
+      toast.promise(promise, {
+        loading: "Registering...",
+        success: (message) => message,
+        error: (error) => error.message,
+      });
     }
     setIsLoading(false);
   };
@@ -71,7 +106,7 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
             icon={HiMail}
             disabled={isLoading}
             required
-            autoComplete="firstname"
+            autoComplete="given-name"
             className="w-full outline-none focus:border-cyan-900 focus:ring-cyan-900"
             placeholder="John"
             color={errors.firstname && "failure"}
@@ -102,7 +137,7 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
             icon={HiMail}
             disabled={isLoading}
             required
-            autoComplete="lastname"
+            autoComplete="family-name"
             className="w-full outline-none focus:border-cyan-900 focus:ring-cyan-900"
             placeholder="Doe"
             color={errors.lastname && "failure"}
@@ -168,6 +203,7 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
             className="w-full outline-none focus:border-cyan-900 focus:ring-cyan-900"
             placeholder="* * * * * * * *"
             color={errors.email ? "failure" : "gray"}
+            autoComplete="new-password"
             {...register("password")}
             helperText={
               errors.password && (
@@ -217,6 +253,7 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
             type={showVerified ? "text" : "password"}
             className="w-full outline-none focus:border-cyan-900 focus:ring-cyan-900"
             placeholder="* * * * * * * *"
+            autoComplete="new-password"
             color={errors.email ? "failure" : "gray"}
             {...register("verifyPassword")}
             helperText={
@@ -233,7 +270,7 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
           />
           <div className="absolute right-2 mt-3 place-self-center justify-self-center">
             <Tooltip
-              content={show ? "Hide" : "Show"}
+              content={showVerified ? "Hide" : "Show"}
               placement="right"
               className="ml-1"
             >
@@ -241,7 +278,7 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
                 type="button"
                 disabled={isLoading}
                 className="text-gray-900 focus:outline-none dark:text-gray-400"
-                onClick={() => setShowVerified(!show)}
+                onClick={() => setShowVerified(!showVerified)}
               >
                 {showVerified ? (
                   <HiEyeOff className="h-5 w-5" />
@@ -259,9 +296,8 @@ const Register: React.FC<IRegister> = ({ onSubmit }) => {
         <div className="mt-2 flex items-center gap-2">
           <Checkbox
             id="agree"
-            color={"blue"}
+            color={errors.agree ? "red" : "blue"}
             {...register("agree")}
-            className={errors.agree && "ring-1 ring-red-500"}
           />
           <Label htmlFor="agree" className="flex">
             I agree with the&nbsp;

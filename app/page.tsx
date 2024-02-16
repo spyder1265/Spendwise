@@ -1,3 +1,6 @@
+"use client";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Custumers from "./components/LandingPage/Custumers";
@@ -6,14 +9,25 @@ import { BasicNavbar } from "./components/Navbar/navbar";
 
 interface Ipage {}
 
-const page: React.FC<Ipage> = () => {
+const Page: React.FC<Ipage> = () => {
+  const [hasAuth, setHasAuth] = useState(false);
+  const { status, data } = useSession();
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      setHasAuth(true);
+    }
+  }, [status]);
   return (
     <main className="m-0 flex flex-col overflow-hidden ">
       <header className="">
         <div className="mb-[72px]">
-          <BasicNavbar />
+          <BasicNavbar
+            isLoggedIn={hasAuth}
+            username={(hasAuth && data?.user?.name?.split(" ")[0]) || ""}
+          />
         </div>
-        <Header />
+        <Header isLoggedIn={hasAuth} />
       </header>
       <section>
         <SocialProof />
@@ -27,4 +41,4 @@ const page: React.FC<Ipage> = () => {
     </main>
   );
 };
-export default page;
+export default Page;

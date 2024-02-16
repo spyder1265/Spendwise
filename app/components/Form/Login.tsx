@@ -1,8 +1,11 @@
 "use client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Label, TextInput, Tooltip } from "flowbite-react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { FaApple } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { HiEye, HiEyeOff, HiKey, HiMail } from "react-icons/hi";
@@ -20,7 +23,7 @@ const schema = yup
   .required();
 
 // eslint-disable-next-line react/prop-types
-const Login: React.FC<ILogin> = ({ onSubmit }) => {
+const Login: React.FC<ILogin> = () => {
   const {
     register,
     handleSubmit,
@@ -30,11 +33,52 @@ const Login: React.FC<ILogin> = ({ onSubmit }) => {
   });
   const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
-  const submit = async () => {
+  const submit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
-    if (!errors) {
-      await onSubmit();
+    if (!errors.email && !errors.password) {
+      const promise = new Promise<string>((resolve, reject) => {
+        setTimeout(() => {
+          signIn("credentials", {
+            redirect: false,
+            ...data,
+          })
+            .then((callback) => {
+              if (callback?.ok) {
+                resolve("Login successful!");
+                setTimeout(() => {
+                  router.push("/dashboard");
+                }, 1000);
+              }
+              reject(new Error("Invalid credentials"));
+            })
+            .catch(reject);
+        }, 2000);
+      });
+
+      toast
+        .promise(promise, {
+          loading: "Logging in...",
+          success: (message) => message,
+          error: (error) => error.message,
+        })
+        .catch((error) => {
+          console.error("An error occurred:", error);
+          setIsLoading(false);
+        });
+    }
+    setIsLoading(false);
+  };
+
+  const handleLoginWith = async (provider: string) => {
+    setIsLoading(true);
+    const result = await signIn(provider, {
+      redirect: false,
+      callbackUrl: "/dashboard",
+    });
+    if (result?.error) {
+      toast.error("Unauthorized");
     }
     setIsLoading(false);
   };
@@ -153,7 +197,7 @@ const Login: React.FC<ILogin> = ({ onSubmit }) => {
         <button
           type="submit"
           disabled={isLoading}
-          className="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 "
+          className="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 disabled:bg-primary-700 disabled:opacity-60 "
         >
           Login
         </button>
@@ -182,6 +226,7 @@ const Login: React.FC<ILogin> = ({ onSubmit }) => {
           color="dark"
           disabled={isLoading}
           className="inline-flex w-full items-center"
+          onClick={() => handleLoginWith("google")}
         >
           <FcGoogle className="h-5 w-5" />
           <span className=" ml-2 text-sm font-medium text-white dark:text-gray-400">

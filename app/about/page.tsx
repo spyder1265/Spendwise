@@ -212,7 +212,7 @@ const About: React.FC = () => {
             </p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
               <a
-                href="#signup"
+                href="auth?register"
                 className="inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
               >
                 Get started
@@ -253,7 +253,7 @@ const About: React.FC = () => {
         </span>
         <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
           <a
-            href="#link"
+            href="#facebook"
             className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
@@ -270,7 +270,7 @@ const About: React.FC = () => {
             </svg>
           </a>
           <a
-            href="#link"
+            href="#instagram"
             className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
@@ -287,7 +287,7 @@ const About: React.FC = () => {
             </svg>
           </a>
           <a
-            href="#link"
+            href="#twitter"
             className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
@@ -300,7 +300,7 @@ const About: React.FC = () => {
             </svg>
           </a>
           <a
-            href="#link"
+            href="#github"
             className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
@@ -317,7 +317,7 @@ const About: React.FC = () => {
             </svg>
           </a>
           <a
-            href="#link"
+            href="#dribbble"
             className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
           >
             <svg

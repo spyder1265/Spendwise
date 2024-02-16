@@ -1,10 +1,17 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Statistic } from "antd";
 import { Label, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { BiArrowBack } from "react-icons/bi";
 import { HiMail } from "react-icons/hi";
-import OTPInput from "react-otp-input";
 import * as yup from "yup";
+import OTPInput from "./Otp";
+
+const { Countdown } = Statistic;
+
+const deadline = Date.now() + 1000 * 60 * 2; // 2 minutes in milliseconds
 
 interface IPasswordReset {
   onSubmit: () => void;
@@ -22,6 +29,7 @@ const PasswordReset: React.FC<IPasswordReset> = () => {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -29,6 +37,8 @@ const PasswordReset: React.FC<IPasswordReset> = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState<"email" | "code">("email");
+  const [countdown, setCountdown] = useState(true);
+  const [secureEmail, setSecureEmail] = useState("");
 
   const submit = async () => {
     setIsLoading(true);
@@ -37,12 +47,39 @@ const PasswordReset: React.FC<IPasswordReset> = () => {
       //   if yes, send email and setStep to code
       //   if no, setStep to email and show error
 
-      if (otp) {
-        console.log(otp);
+      if (step === "email") {
+        const email = getValues("email");
+        // only show first and last letter of email and everything else after @ symbol
+        const secureEmail = `${email[0]}*****${email[email.indexOf("@") - 1]}@${
+          email.split("@")[1]
+        }`;
+        setSecureEmail(secureEmail);
+
+        setStep("code");
+      } else if (step === "code") {
+        if (otp) {
+          //   check if otp is correct
+          //   if yes, setStep to password
+          //   if no, show error
+
+          console.log(otp);
+
+          if (otp === "1234") {
+            toast.success("Verified");
+          } else {
+            toast.error("Invalid OTP");
+          }
+        } else {
+          toast.error("Invalid OTP");
+        }
       }
-      setStep("code");
     }
+
     setIsLoading(false);
+  };
+
+  const onFinish = () => {
+    setCountdown(false);
   };
 
   return (
@@ -92,29 +129,77 @@ const PasswordReset: React.FC<IPasswordReset> = () => {
         </form>
       ) : (
         step === "code" && (
-          <form className=" flex w-full flex-col gap-4">
+          <form
+            onSubmit={handleSubmit(submit)}
+            className=" flex w-full flex-col gap-4"
+          >
             <div className="flex w-full items-center justify-center text-gray-900">
               <OTPInput
+                numInputs={4}
+                onChange={(otp) => setOtp(otp.toString())}
+                inputStyle="w-12 h-12 rounded-lg border-2 disabled:opacity-40 text-center border-blue-500 focus:border-4 focus:border-blue-600 focus:ring-blue-600"
+                containerStyle="flex w-full items-center justify-center gap-4"
+                inputType="number"
                 value={otp}
-                onChange={setOtp}
-                numInputs={6}
-                inputType="text"
-                placeholder="*"
-                inputStyle={
-                  "w-[40px] h-[50px] rounded-lg border-2 transition-all duration-300 border-gray-300 outline-none mx-1"
-                }
                 shouldAutoFocus
                 skipDefaultStyles
-                renderInput={(props) => <input {...props} />}
+                renderInput={(props, index) => (
+                  <input
+                    disabled={isLoading}
+                    id={"otp-field" + (index + 1).toString()}
+                    required
+                    {...props}
+                  />
+                )}
               />
+            </div>
+            <div className="flex w-full items-center justify-center">
+              <p className="text-sm text-gray-500 dark:text-gray-300">
+                Enter the 4-digit code sent to your
+                <span className="font-medium"> {secureEmail}</span>
+              </p>
+            </div>
+            <div className="flex w-full items-center justify-center">
+              <span className="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-gray-300">
+                <span>Didn't recieve the code? </span>
+                {countdown ? (
+                  <Countdown
+                    value={deadline}
+                    onFinish={onFinish}
+                    valueStyle={{
+                      color: "rgb(107 114 128 / var(--tw-text-opacity))",
+                      fontSize: "0.875rem",
+                      lineHeight: "0.75rem",
+                    }}
+                  />
+                ) : (
+                  <a
+                    href="auth?register"
+                    className="text-blue-600 hover:underline dark:text-blue-500"
+                  >
+                    Resend
+                  </a>
+                )}
+              </span>
             </div>
             <div>
               <button
                 type="submit"
                 disabled={isLoading}
-                className="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 "
+                className="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 disabled:opacity-70 "
               >
                 Verify
+              </button>
+            </div>
+            <div className="flex w-full items-center justify-center">
+              <button
+                type="button"
+                onClick={() => setStep("email")}
+                disabled={isLoading}
+                className="inline-flex items-center justify-center justify-self-center rounded-lg  text-center text-base font-medium text-primary-500 hover:text-primary-600 focus:ring-0 disabled:opacity-70 "
+              >
+                <BiArrowBack className="mr-1" />
+                <span>Go back</span>
               </button>
             </div>
           </form>
