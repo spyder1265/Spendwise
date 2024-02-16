@@ -48,32 +48,39 @@ const Register: React.FC<IRegister> = () => {
 
   const submit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
-    if (!errors.root) {
+    if (
+      !errors.email &&
+      !errors.password &&
+      !errors.verifyPassword &&
+      !errors.agree &&
+      !errors.firstname &&
+      !errors.lastname
+    ) {
       const promise = new Promise<string>((resolve, reject) => {
         setTimeout(() => {
-          axios.post("/api/register", data).then(() => {
+          axios.post("/api/user", data).then(() => {
             signIn("credentials", {
+              redirect: false,
               ...data,
-              redirect: true,
             })
               .then((callback) => {
                 if (callback?.ok) {
-                  resolve("Authenticated successfully");
+                  resolve("Welcome");
                   setTimeout(() => {
-                    router.push("/dashboard?Onboarding=true");
-                  }, 1000);
+                    router.replace("/auth?register&&payment");
+                  }, 1500);
+                } else {
+                  reject(new Error("Error"));
                 }
-                reject(new Error("Authentication failed"));
               })
               .catch(reject);
           });
         }, 2000);
-
-        toast.promise(promise, {
-          loading: "Registering...",
-          success: (message) => message,
-          error: (error) => error.message,
-        });
+      });
+      toast.promise(promise, {
+        loading: "Registering...",
+        success: (message) => message,
+        error: (error) => error.message,
       });
     }
     setIsLoading(false);
@@ -196,6 +203,7 @@ const Register: React.FC<IRegister> = () => {
             className="w-full outline-none focus:border-cyan-900 focus:ring-cyan-900"
             placeholder="* * * * * * * *"
             color={errors.email ? "failure" : "gray"}
+            autoComplete="new-password"
             {...register("password")}
             helperText={
               errors.password && (
@@ -245,6 +253,7 @@ const Register: React.FC<IRegister> = () => {
             type={showVerified ? "text" : "password"}
             className="w-full outline-none focus:border-cyan-900 focus:ring-cyan-900"
             placeholder="* * * * * * * *"
+            autoComplete="new-password"
             color={errors.email ? "failure" : "gray"}
             {...register("verifyPassword")}
             helperText={

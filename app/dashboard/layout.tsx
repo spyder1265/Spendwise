@@ -1,6 +1,6 @@
 "use client";
-
 import { SidebarProvider, useSidebarContext } from "@/context/SidebarContext";
+import { SessionProvider } from "next-auth/react";
 import type { FC, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 import ClientOnly from "../components/ClientOnly";
@@ -30,7 +30,7 @@ const DashboardLayoutContent: FC<PropsWithChildren> = function ({ children }) {
             isCollapsed ? "lg:ml-[4.1rem]" : "lg:ml-64",
           )}
         >
-          {children}
+          <SessionProvider>{children}</SessionProvider>
         </div>
       </div>
     </ClientOnly>
